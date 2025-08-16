@@ -1,38 +1,105 @@
-<!doctype html>
-
-<!-- this is a comment for human! -->
+<!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <title>Hemanth's Portal</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemanth's Portfolio | Electronics Engineer</title>
     <link rel="stylesheet" href="css/master.css">
-    <link rel="FaviconIcon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut" href="favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="name" content="Hemanth Sunilkumar's Portal">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="Hemanth Sunilkumar - Electronics and Communication Engineering student at NITC, pursuing M-Tech at IISc">
     <meta name="robots" content="noindex, nofollow">
-    <style>
-    body{
-      background-image: url('images/black.jpg');
-    }
-    </style>
-  </head>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Hemanth S</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <body>
-    <h1>HI, I'M HEMANTH</h1>
-    <p>B-TECH IN ELECTRONICS AND COMMUNICATION ENGINEERING AT NITC</p>
-    <p>M-TECH IN ELECTRONIC SYSTEMS ENGINEERING AT IISc</p>
-    <h2>CREDENTIALS AND PORTFOLIO</h2>
+    <main class="main-content">
+        <div class="container">
+            <section id="home" class="hero-section fade-in">
+                <h1>Hi, I'm Hemanth</h1>
+                <p style="font-size: 1.3rem; color: #64748b; margin-bottom: 2rem;">
+                    Electronics & Communication Engineering Student
+                </p>
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <p>B.Tech in Electronics and Communication Engineering at NITC</p>
+                    <p>M.Tech in Electronic Systems Engineering at IISc</p>
+                </div>
+            </section>
 
-    <p><a href="resume.html"><button class="button" style="vertical-align:middle"><span>MY RESUME</span></button></a> <a href="https://github.com/hemanthsunilkumar"><button class="button" style="vertical-align:middle"><span>MY GITHUB</span></button></a>
-    <h2>CONTACT</h2>
+            <section class="section fade-in">
+                <h2>About Me</h2>
+                <p>
+                    I'm a passionate electronics engineer with a strong foundation in communication systems 
+                    and electronic design. Currently pursuing my Master's degree at the prestigious Indian 
+                    Institute of Science, I'm dedicated to advancing the field of electronic systems 
+                    engineering through innovative research and practical applications.
+                </p>
+            </section>
 
-    <p>EMAIL: <a href="mailto:hemanthsunilkumar28@gmail.com">hemanthsunilkumar28@gmail.com</a></p>
-  </body>
+            <section class="section fade-in">
+                <h2>Credentials & Portfolio</h2>
+                <div class="text-center">
+                    <a href="resume.html" class="button">
+                        View My Resume
+                    </a>
+                    <a href="https://github.com/hemanthsunilkumar" class="button button-secondary" target="_blank">
+                        Visit GitHub
+                    </a>
+                </div>
+            </section>
 
-  <footer>
-    <hr>
-    <code>Copyright (c) 2020 Hemanth Sunilkumar</code>
-  </footer>
+            <section id="contact" class="section fade-in">
+                <h2>Get In Touch</h2>
+                <p>
+                    I'm always interested in discussing new opportunities, research collaborations, 
+                    or simply connecting with fellow engineers and researchers.
+                </p>
+                <div class="text-center mt-4">
+                    <p>
+                        <strong>Email:</strong> 
+                        <a href="mailto:hemanthsunilkumar28@gmail.com">hemanthsunilkumar28@gmail.com</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hemanth Sunilkumar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>
