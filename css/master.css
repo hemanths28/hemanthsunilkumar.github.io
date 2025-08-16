@@ -1,125 +1,351 @@
-/* Cascading stylesheet for the website */
+/* Modern CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Text inside these asterisks and slashes are comments for human */
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-  a {
-    color: blue;/* set the text color to blue here */
-    text-decoration: none; /* This means we do not want hyperlinks to be underlined */
-  }
+/* Root Variables */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #64748b;
+    --accent-color: #06b6d4;
+    --text-light: #f8fafc;
+    --text-dark: #1e293b;
+    --bg-dark: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.8);
+    --border-color: rgba(148, 163, 184, 0.2);
+}
 
-  a:hover {
-    color: red;/* set the text color to red here */
-    text-decoration: none; /* This means we do not want hyperlinks to be underlined */
-  }
+/* Base Styles */
+html {
+    scroll-behavior: smooth;
+}
 
-  body {
-    background-image: url("images/black.jpg"); /* set the background color here */
-    color: black;/* set the text color to black here */
-    font-family: Arial;/* set the font here */
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background-attachment: fixed;
+    color: var(--text-light);
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-   }
-
-  footer {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  h1 {
-    color: white;
-    text-align: left;
-    margin-top: 5rem;
-    margin-left: 5rem;
-    font-family: Arial;
-    font-size: 2.5rem;
-   }
-
-  h2 {
-    /* set the text color of to #075AAB here */
-    color: white;
-    /* set both the bottom margin and top margin to 2.5rem here */
-    margin-top: 3rem;
-    margin-left: 5rem;
-   }
-
-  h3 {
-    margin-bottom: 0;
-    margin-top: 2rem;
-  }
-
-  h4 {
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-  }
-
-  h5 {
-    margin-top: 0.5rem;
-  }
-
-  hr {
-    margin-bottom: 3rem;
-    margin-top: 3rem;
-  }
-
-  p {
-    color: white;
-    margin-left: 5rem;
-    margin-bottom: 2rem;
-    font-family:monospace;
-    font-size:1.5rem;  }
-
-  /* this controls how the bullet points in the resume page looks */
-  ul {
-    display: table;
+/* Container */
+.container {
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: left;
-  }
+    padding: 0 2rem;
+}
 
-  footer{
-    color: white;
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 400;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Typography */
+h1 {
+    color: var(--text-light);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem 0;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+h3 {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 2rem 0 1rem 0;
+}
+
+h4 {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 1rem 0 0.5rem 0;
+}
+
+h5 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0.5rem 0;
+}
+
+h6 {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 5rem;
+    padding: 2rem 0;
+}
+
+.hero-section {
     text-align: center;
-  }
-
-  hr {
-    margin-top: 7.5rem;
-  }
-
-  .button {
-  display: inline-block;
-  border-radius: 8px;
-  background-color: blue;
-  border: none;
-  color: #FFFFFF;
-  text-align:center;
-  font-size: 1rem;
-  padding: 1.25rem;
-  width: 12rem;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  opacity: 0.75;  
+    padding: 4rem 0;
+    background: var(--bg-card);
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
 }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.section {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
 }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+/* Buttons */
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0.5rem;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
 }
 
-.button:hover span {
-  padding-right: 25px;
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(37, 99, 235, 0.3);
+    text-decoration: none;
+    color: white;
 }
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
+.button-secondary {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.button-secondary:hover {
+    background: var(--accent-color);
+    color: var(--bg-dark);
+}
+
+/* Resume Specific Styles */
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.3);
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.experience-item, .education-item {
+    background: rgba(30, 41, 59, 0.5);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+    
+    .button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
 }
